@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Pokemon {
+  id   Int    @id @default(autoincrement())
+  name String
+  type String
+  img  String
+
+  Team   Team? @relation(fields: [teamId], references: [id])
+  teamId Int?
+
+  @@map("pokemons")
+}
+
+model Team {
+  id       Int       @id @default(autoincrement())
+  name     String
+  pokemons Pokemon[]
+
+  @@map("teams")
+}
