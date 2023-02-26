@@ -1,0 +1,8 @@
+{
+  "build": {
+    "commands": [
+      "db:migrate:prod",
+      "db:prisma:generate"
+    ]
+  }
+}
