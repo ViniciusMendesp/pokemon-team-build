@@ -1,1 +1,5 @@
-{   "builds": [ { "src": "npm install"},{ "src": "npm run build" },  { "src": "npm run db:migrate:prod"}, { "src": "npm run start"}  ] }
+{
+  "builds": [
+    { "src": "next.config.js" }
+  ]
+}
