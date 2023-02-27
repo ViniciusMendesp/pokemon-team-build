@@ -1,5 +1,19 @@
 {
+  "version": 2,
   "builds": [
-    { "src": "next.config.js", "use": "@vercel/next" }
+    {
+      "src": "package.json",
+      "use": "@vercel/node",
+      "config": {
+        "next": {
+          "build": {
+            "basePath": "/pokemon-team-build"
+          }
+        }
+      }
+    }
+  ],
+  "routes": [
+    { "src": "/src/", "dest": "/src/index.js" }
   ]
 }
