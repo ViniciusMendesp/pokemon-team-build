@@ -1,5 +1,5 @@
 {
   "builds": [
-    { "/pokemon-team-build/next.config.js ": "next.config.js", "use": "@vercel/next" }
+    { "src": "next.config.js", "use": "@vercel/next" }
   ]
 }
