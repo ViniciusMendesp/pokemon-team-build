@@ -1,1 +1,1 @@
-{   "builds": [    { "src": "db:migrate:prod"}, { "src": "build" }, { "src": "start"}  ] }
+{   "builds": [ { "src": "npm install"},{ "src": "npm run build" },  { "src": "npm run db:migrate:prod"}, { "src": "npm run start"}  ] }
