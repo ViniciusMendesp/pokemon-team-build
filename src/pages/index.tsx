@@ -66,7 +66,7 @@ export default function Home() {
 
   return (
     <Styles.Container>
-      <Header href="/listTeam" title="create new teams" />
+      <Header href="/listTeam" title="teams" />
       <Styles.Content>
         <Styles.ChoiceContainer>
           <Styles.TitleContainer>

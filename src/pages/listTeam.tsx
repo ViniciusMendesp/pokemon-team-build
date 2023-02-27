@@ -19,7 +19,7 @@ export default function Home() {
 
   return (
     <Styles.Container>
-      <Header href="/" title="teams" />
+      <Header href="/" title="create new teams" />
 
       {teams.length !== 0 &&
         teams.map((team) => (
