@@ -7,9 +7,9 @@
    🚀 Projeto para criar equipes de pokemons. 🚀
    
 
-<h1 align="center">
+
 ![teamvini](https://user-images.githubusercontent.com/63562960/221834016-6f0ba0bd-fb55-4d06-ad48-dbc02cef5d40.png)
-</h1>
+
 
 
 #  ✅ Features
@@ -22,12 +22,9 @@
 
 # ✅ Demonstração da aplicação
 
-<h1 align="center">
-  ![gifpokeatt](https://user-images.githubusercontent.com/63562960/221587455-d493934f-a9c2-4277-ae1f-0ce5dbf33631.gif)
-</h1>
 
+![gifpokeatt](https://user-images.githubusercontent.com/63562960/221587455-d493934f-a9c2-4277-ae1f-0ce5dbf33631.gif)
 
-<a href="https://poke-team.vercel.app/">Link APP Deployed</a>
 
 
 # ✅ Tecnologias utilizadas
