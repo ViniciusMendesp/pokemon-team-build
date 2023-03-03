@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { PokeballIcon } from "@/assets/icons";
 import { Header } from "@/components/Header";
 import { Pokemon } from "@/components/Pokemon";
 import * as Styles from "@/styles/pages/index.styles";

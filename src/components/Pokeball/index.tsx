@@ -18,6 +18,7 @@ export function Pokeball({
   const primaryType =
     pokeTypeColors[`${pokemon?.types?.[0].type.name}`] ||
     pokeTypeColors[`${pokemon?.type}`];
+
   const [selected, setSelected] = useState(false);
 
   function selectedPokemon(pokemon: IPokemon) {
