@@ -97,7 +97,9 @@ export const TrashCircle = styled.div`
   }
 `;
 
-export const DoneCircle = styled.div`
+export const DoneCircle = styled.button`
+  all: unset;
+
   width: 40px;
   height: 40px;
 
@@ -111,6 +113,11 @@ export const DoneCircle = styled.div`
   color: var(--white);
 
   cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
 
   &:hover {
     filter: brightness(0.9);

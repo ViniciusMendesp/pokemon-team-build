@@ -119,7 +119,10 @@ export default function Home() {
               <Styles.Trash />
             </Styles.TrashCircle>
 
-            <Styles.DoneCircle onClick={addTeam}>
+            <Styles.DoneCircle
+              disabled={teamPokemonSelected.length < 6}
+              onClick={addTeam}
+            >
               <Styles.Done />
             </Styles.DoneCircle>
           </Styles.IconsContainer>
