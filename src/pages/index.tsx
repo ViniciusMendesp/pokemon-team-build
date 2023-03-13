@@ -5,7 +5,8 @@ import * as Styles from "@/styles/pages/index.styles";
 import axios from "axios";
 import { IPokemon } from "@/interfaces/pokemon.interface";
 import { Pokeball } from "@/components/Pokeball";
-import Link from "next/link";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Home() {
   const [pokemons, setPokemons] = useState<IPokemon[] | []>([]);
@@ -14,12 +15,10 @@ export default function Home() {
   const [teamPokemonSelected, setTeamPokemonSelected] = useState<
     IPokemon[] | []
   >([]);
-
   const [removePokemonList, setRemovePokemonList] = useState<IPokemon[] | []>(
     []
   );
-
-  const isButtonDisabled = teamPokemonSelected.length < 6;
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   const [
     slotPokeball1,
@@ -60,12 +59,18 @@ export default function Home() {
       })),
     };
 
+    setIsButtonDisabled(true);
     await axios.post("/api/createTeam", body);
+    toast.success("Equipe criada com sucesso!");
 
     setTimeout(() => {
       window.location.href = "/listTeam";
     }, 2000);
   }
+
+  useEffect(() => {
+    setIsButtonDisabled(teamPokemonSelected.length < 6);
+  }, [teamPokemonSelected]);
 
   return (
     <Styles.Container>
@@ -126,7 +131,7 @@ export default function Home() {
             <Styles.TrashCircle onClick={removeItems}>
               <Styles.Trash />
             </Styles.TrashCircle>
-
+            <ToastContainer />
             {isButtonDisabled ? (
               <Styles.DoneCircle disabled={true}>
                 <Styles.Done />
