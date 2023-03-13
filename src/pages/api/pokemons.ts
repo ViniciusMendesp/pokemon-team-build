@@ -8,7 +8,7 @@ export default async function handler(
 ) {
   try {
     const api = new Pokedex();
-    const data = await api.getPokemonsList({ limit: 30 });
+    const data = await api.getPokemonsList({ limit: 60 });
 
     const { results } = data;
 

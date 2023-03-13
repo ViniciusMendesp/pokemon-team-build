@@ -8,8 +8,6 @@ export default async function handler(
   const { body } = req;
   const { name, pokemons } = body;
 
-  console.log(body);
-
   const pokeTeam = await prismaClient.team.create({
     data: {
       name: name,

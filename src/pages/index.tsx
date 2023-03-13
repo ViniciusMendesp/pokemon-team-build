@@ -5,6 +5,7 @@ import * as Styles from "@/styles/pages/index.styles";
 import axios from "axios";
 import { IPokemon } from "@/interfaces/pokemon.interface";
 import { Pokeball } from "@/components/Pokeball";
+import Link from "next/link";
 
 export default function Home() {
   const [pokemons, setPokemons] = useState<IPokemon[] | []>([]);
@@ -17,6 +18,8 @@ export default function Home() {
   const [removePokemonList, setRemovePokemonList] = useState<IPokemon[] | []>(
     []
   );
+
+  const isButtonDisabled = teamPokemonSelected.length < 6;
 
   const [
     slotPokeball1,
@@ -56,11 +59,12 @@ export default function Home() {
         img: pokemon.img,
       })),
     };
-    console.log(body, "body");
 
     await axios.post("/api/createTeam", body);
 
-    alert("time criado com sucesso");
+    setTimeout(() => {
+      window.location.href = "/listTeam";
+    }, 2000);
   }
 
   return (
@@ -82,36 +86,40 @@ export default function Home() {
           </Styles.TitleContainer>
 
           <Styles.ChoiceContent>
-            <Pokeball
-              pokemon={slotPokeball1}
-              removePokemonList={removePokemonList}
-              setRemovePokemonList={setRemovePokemonList}
-            />
-            <Pokeball
-              pokemon={slotPokeball2}
-              removePokemonList={removePokemonList}
-              setRemovePokemonList={setRemovePokemonList}
-            />
-            <Pokeball
-              pokemon={slotPokeball3}
-              removePokemonList={removePokemonList}
-              setRemovePokemonList={setRemovePokemonList}
-            />
-            <Pokeball
-              pokemon={slotPokeball4}
-              removePokemonList={removePokemonList}
-              setRemovePokemonList={setRemovePokemonList}
-            />
-            <Pokeball
-              pokemon={slotPokeball5}
-              removePokemonList={removePokemonList}
-              setRemovePokemonList={setRemovePokemonList}
-            />
-            <Pokeball
-              pokemon={slotPokeball6}
-              removePokemonList={removePokemonList}
-              setRemovePokemonList={setRemovePokemonList}
-            />
+            <Styles.RowOne>
+              <Pokeball
+                pokemon={slotPokeball1}
+                removePokemonList={removePokemonList}
+                setRemovePokemonList={setRemovePokemonList}
+              />
+              <Pokeball
+                pokemon={slotPokeball2}
+                removePokemonList={removePokemonList}
+                setRemovePokemonList={setRemovePokemonList}
+              />
+              <Pokeball
+                pokemon={slotPokeball3}
+                removePokemonList={removePokemonList}
+                setRemovePokemonList={setRemovePokemonList}
+              />
+            </Styles.RowOne>
+            <Styles.RowTwo>
+              <Pokeball
+                pokemon={slotPokeball4}
+                removePokemonList={removePokemonList}
+                setRemovePokemonList={setRemovePokemonList}
+              />
+              <Pokeball
+                pokemon={slotPokeball5}
+                removePokemonList={removePokemonList}
+                setRemovePokemonList={setRemovePokemonList}
+              />
+              <Pokeball
+                pokemon={slotPokeball6}
+                removePokemonList={removePokemonList}
+                setRemovePokemonList={setRemovePokemonList}
+              />
+            </Styles.RowTwo>
           </Styles.ChoiceContent>
 
           <Styles.IconsContainer>
@@ -119,12 +127,15 @@ export default function Home() {
               <Styles.Trash />
             </Styles.TrashCircle>
 
-            <Styles.DoneCircle
-              disabled={teamPokemonSelected.length < 6}
-              onClick={addTeam}
-            >
-              <Styles.Done />
-            </Styles.DoneCircle>
+            {isButtonDisabled ? (
+              <Styles.DoneCircle disabled={true}>
+                <Styles.Done />
+              </Styles.DoneCircle>
+            ) : (
+              <Styles.DoneCircle onClick={addTeam}>
+                <Styles.Done />
+              </Styles.DoneCircle>
+            )}
           </Styles.IconsContainer>
         </Styles.ChoiceContainer>
 

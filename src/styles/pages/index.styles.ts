@@ -59,16 +59,36 @@ export const ChoiceContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  height: 100%;
   flex-wrap: wrap;
+  gap: 40px;
 
   margin-bottom: 24px;
+
+  @media (min-width: 550px) {
+    display: flex;
+    margin-left: 43vw;
+  }
+`;
+
+export const RowOne = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 31px;
+  margin-left: -66px;
+`;
+
+export const RowTwo = styled.div`
+  display: flex;
+  gap: 31px;
+  flex-wrap: wrap;
+  margin-left: 38px;
 `;
 
 export const IconsContainer = styled.div`
   width: 100%;
 
-  padding-right: 15%;
+  padding-right: 10%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
